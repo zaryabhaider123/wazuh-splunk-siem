@@ -30,9 +30,15 @@ The Wazuh manager centralizes multi-source telemetry streams, parses raw data, a
 * Splunks ingest the JSON telemetry streams, 
 * Custom Search Processing Language (SPL) normalizes fields (such as casting rule.level to numeric values) to track event velocities, rule severities, and threat mappings.
 
+<img width="1920" height="1080" alt="Wazuh architecture diagram" src="https://github.com/user-attachments/assets/009dfcfc-1f97-4439-8d70-43264de669b1" />
+
+
 **Presentation Layer:**
 
 Splunk Dashboard Studio renders the final operational interface, providing analysts with unified visibility into system health, attacker TTPs, and forensic details.
+
+<img width="1470" height="930" alt="Screenshot 2026-09-27 at 3 25 03 AM" src="https://github.com/user-attachments/assets/a385dfc1-a02b-434c-8a13-5d5ce1f5dc82" />
+<img width="1470" height="927" alt="Screenshot 2026-09-27 at 3 25 13 AM" src="https://github.com/user-attachments/assets/28b40363-6b6e-4294-b754-a10674e8d469" />
 
 
 <h2>Key Findings</h2>
