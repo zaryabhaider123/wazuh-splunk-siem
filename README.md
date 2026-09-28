@@ -1,4 +1,4 @@
-# wazuh-_splunk_siem
+# wazuh-splunk-siem
 
 <h2>Overview:</h2>
 
@@ -17,6 +17,7 @@ Within Splunk, raw JSON logs are normalized and transformed via custom SPL (Sear
 * **Metasploitable 2:**  Integrated via agentless syslog forwarding to accommodate systems incapable of running modern agents.
 
 **Parsing Layer:**
+
 The Wazuh manager centralizes multi-source telemetry streams, parses raw data, and streams structured JSON alerts.
 
 **Storage and Analytics layer (Splunk_enterprice)**
@@ -25,20 +26,28 @@ The Wazuh manager centralizes multi-source telemetry streams, parses raw data, a
 * Custom Search Processing Language (SPL) normalizes fields (such as casting rule.level to numeric values) to track event velocities, rule severities, and threat mappings.
 
 **Presentation Layer:**
+
 Splunk Dashboard Studio renders the final operational interface, providing analysts with unified visibility into system health, attacker TTPs, and forensic details.
+
 <Dashboard image>
 
 <h2>Key Findings</h2>
 
-1. What the SIEM does
+1. **What the SIEM does**
 
 Wazuh ingests security telemetry from three different endpoint types through three different collection methods, centralizes it into one dashboard, and applies rule-based detection with MITRE ATT&CK mapping, vulnerability scanning, and compliance benchmarking all running on a single Ubuntu host:
 Windows 10: full agent + Sysmon, producing detailed process, network, and registry telemetry.
 Kali Linux: full agent, standard host monitoring.
 Metasploitable 2: agentless syslog forwarding, for a legacy 32-bit system that can't run a modern agent at all.
-3. Detection in action
+
+
+2. **Detection in action**
+
 Repeated failed SSH logins against the Ubuntu host reliably triggered Wazuh's brute-force detection rule (rule 2502, MITRE T1110), and the Windows endpoint's Sysmon data was automatically mapped to real MITRE ATT&CK tactics (Persistence, Privilege Escalation, Defense Evasion) without any custom rule-writing all from Wazuh's default ruleset.
-4. A detection gap, found by testing
+
+
+3. **A detection gap, found by testing**
+
 Not every attack is visible to every monitoring method. Exploiting the vsftpd 2.3.4 backdoor (CVE-2011-2523) on Metasploitable  via both Metasploit and manually  gained root access that neither the syslog forwarding nor the agent-based monitoring detected, since the backdoor trigger operates at the network/protocol layer with no native logging. Closing this specific gap would require network-layer intrusion detection (e.g. Suricata) rather than log-based monitoring alone — a natural next addition to the lab.
 
 
