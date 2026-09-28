@@ -29,7 +29,6 @@ The Wazuh manager centralizes multi-source telemetry streams, parses raw data, a
 **Presentation Layer:**
 
 Splunk Dashboard Studio renders the final operational interface, providing analysts with unified visibility into system health, attacker TTPs, and forensic details.
-<img width="1470" height="930" alt="Screenshot 2026-09-27 at 3 25 03 AM" src="https://github.com/user-attachments/assets/8d3c57bf-70c2-4bcb-8807-74b77c70196e" />
 
 
 <h2>Key Findings</h2>
