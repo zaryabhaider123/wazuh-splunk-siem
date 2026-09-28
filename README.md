@@ -17,6 +17,10 @@ Within Splunk, raw JSON logs are normalized and transformed via custom SPL (Sear
 * **Kali Linux & Ubuntu Server:** Monitored via standard Wazuh host-based agents tracking system logs, authentication, and file integrity.
 * **Metasploitable 2:**  Integrated via agentless syslog forwarding to accommodate systems incapable of running modern agents.
 
+
+<img width="1064" height="633" alt="Screenshot 2026-09-27 at 3 44 12 PM" src="https://github.com/user-attachments/assets/3e1b76f2-cedc-4509-9c42-ae66722501f8" />
+
+
 **Parsing Layer:**
 
 The Wazuh manager centralizes multi-source telemetry streams, parses raw data, and streams structured JSON alerts.
